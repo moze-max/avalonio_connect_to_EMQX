@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:物联网.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="物联网.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <!--<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+
+	<DockPanel LastChildFill="True">
+		<Menu Background="Black" Height="24" DockPanel.Dock="Top" Foreground="Azure" SelectedItem="ture" >
+
+			<MenuItem Background="Black" Foreground="Azure" Visual.FlowDirection="LeftToRight"
+					  BorderBrush="Black" Header="More" ToolTip.Tip="Look More" >		
+					<MenuItem x:Name="about" Background="Black" Foreground="Azure" Visual.FlowDirection="LeftToRight"
+							BorderBrush="Black" Header="About" ToolTip.Tip="About us" />
+			</MenuItem>
+
+		</Menu>
+		<!--<Border Height="25" Background="SkyBlue" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top">
+			<TextBlock Foreground="Black">Dock = "Top"</TextBlock>
+		</Border>
+		<Border Height="25" Background="LemonChiffon" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Bottom">
+			<TextBlock Foreground="Black">Dock = "Bottom"</TextBlock>
+		</Border>-->
+		<!--<Border Width="100" Background="CadetBlue" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Left" HorizontalAlignment="Stretch">-->
+			<!--<TextBlock Foreground="Black">Dock = "Left"</TextBlock>-->
+			<!--<Menu DockPanel.Dock="Left" FontSize="10" Background="DarkCyan" VerticalAlignment="Top" HorizontalAlignment="Stretch" o>
+				<MenuItem Header="Home" Click=""/>
+				<Separator/>
+				<MenuItem Header="About" Command=""/>
+				<Separator/>
+			</Menu>-->
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<!-- 第一行的高度由内容自动决定 -->
+				<RowDefinition Height="*"/>
+				<!-- 第二行填满剩余空间 -->
+			</Grid.RowDefinitions>
+
+			<Border x:Name="warningmessage" Grid.Row="0" Background="SkyBlue">
+				<TextBlock x:Name="connectwith" Foreground="Black"
+						   HorizontalAlignment="Center" VerticalAlignment="Center"
+						   FontSize="30" />
+			</Border>
+
+			<Border x:Name="border1" Grid.Row="1" Background="White"
+					BorderBrush="Black" BorderThickness="1">
+				<TextBlock x:Name="ShowData" Foreground="Black"
+						   HorizontalAlignment="Center" VerticalAlignment="Center"
+						   FontSize="45" />
+			</Border>
+		</Grid>
+		
+	</DockPanel>
+</UserControl>
