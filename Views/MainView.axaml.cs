@@ -12,10 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-
-
 namespace 物联网.Views;
-
 public partial class MainView : UserControl
 {
     //private static System.Timers.Timer? aTimer;
@@ -23,17 +20,7 @@ public partial class MainView : UserControl
     private string data;
     public MainView()
     {
-
         InitializeComponent();
-
-
-        //string getvalue = newget("https://moozy.space/value");
-        //ShowData.Text = getvalue;
-        ////SetTimer();
-        // _timer = new System.Timers.Timer(1000); // 每秒触发一次  
-        //_timer.Elapsed += TimerElapsed; // 订阅事件  
-        //_timer.AutoReset = true;
-        //_timer.Enabled = true; // 开始计时器  
         MQTTClientTest();
     }
 
@@ -41,12 +28,12 @@ public partial class MainView : UserControl
 
     public async Task MQTTClientTest()
     {
-        string broker = "d90c1610.ala.cn-hangzhou.emqxsl.cn";
-        int port = 8883;
+        string broker = "broker.com";
+        int port = 1883;
         string clientId = Guid.NewGuid().ToString();
         string topic = "mqtt/cs";
-        string username = "wlwtext";
-        string password = "qwe12340";
+        string username = "name";
+        string password = "password";
         var factory = new MqttFactory();
         var client = factory.CreateMqttClient();
         var options = new MqttClientOptionsBuilder()
@@ -105,46 +92,5 @@ public partial class MainView : UserControl
             return Task.CompletedTask;
         };
 
-    }
-
-
-
-
-
-    public static string newget(string url)
-    {
-        HttpClient client = new HttpClient();
-        var v = client.GetStringAsync(url).Result;
-        return v;
-    }
-
-    private void TimerElapsed(object? sender, ElapsedEventArgs e)
-    {
-        // 在后台线程中启动异步操作  
-        Task.Run(async () =>
-        {
-            try
-            {
-
-                //string getvalue = await NewGetAsync("https://moozy.space/value");
-                //string getvalue = 
-                //data = getvalue;
-                await MQTTClientTest();
-                // Dispatcher.UIThread.Post(() => ShowData.Text = data);
-            }
-            catch (Exception ex)
-            {
-
-                Dispatcher.UIThread.Post(() => ShowData.Text = ex.Message);
-            }
-        });
-    }
-
-    public static async Task<string> NewGetAsync(string url)
-    {
-        using (HttpClient client = new HttpClient())
-        {
-            return await client.GetStringAsync(url);
-        }
     }
 }
