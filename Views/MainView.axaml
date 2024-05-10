@@ -24,27 +24,13 @@
 			</MenuItem>
 
 		</Menu>
-		<!--<Border Height="25" Background="SkyBlue" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top">
-			<TextBlock Foreground="Black">Dock = "Top"</TextBlock>
-		</Border>
-		<Border Height="25" Background="LemonChiffon" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Bottom">
-			<TextBlock Foreground="Black">Dock = "Bottom"</TextBlock>
-		</Border>-->
-		<!--<Border Width="100" Background="CadetBlue" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Left" HorizontalAlignment="Stretch">-->
-			<!--<TextBlock Foreground="Black">Dock = "Left"</TextBlock>-->
-			<!--<Menu DockPanel.Dock="Left" FontSize="10" Background="DarkCyan" VerticalAlignment="Top" HorizontalAlignment="Stretch" o>
-				<MenuItem Header="Home" Click=""/>
-				<Separator/>
-				<MenuItem Header="About" Command=""/>
-				<Separator/>
-			</Menu>-->
+		
 
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
-				<!-- 第一行的高度由内容自动决定 -->
-				<RowDefinition Height="*"/>
-				<!-- 第二行填满剩余空间 -->
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>	
 			</Grid.RowDefinitions>
 
 			<Border x:Name="warningmessage" Grid.Row="0" Background="SkyBlue">
@@ -52,8 +38,14 @@
 						   HorizontalAlignment="Center" VerticalAlignment="Center"
 						   FontSize="30" />
 			</Border>
+			
+			<Border x:Name="usermessage" Grid.Row="1" Background="SkyBlue">
+				<TextBlock x:Name="message" Foreground="Black"
+						   HorizontalAlignment="Center" VerticalAlignment="Center"
+						   FontSize="30" />
+			</Border>
 
-			<Border x:Name="border1" Grid.Row="1" Background="White"
+			<Border x:Name="border1" Grid.Row="2" Background="White"
 					BorderBrush="Black" BorderThickness="1">
 				<TextBlock x:Name="ShowData" Foreground="Black"
 						   HorizontalAlignment="Center" VerticalAlignment="Center"

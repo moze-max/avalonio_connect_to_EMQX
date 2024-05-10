@@ -56,9 +56,9 @@ public partial class MainView : UserControl
                         var caCert = new X509Certificate2(caCertPath); // 使用 X509Certificate2 而不是 X509Certificate  
                         o.Certificates = new List<X509Certificate> { caCert };
                     }
-                    catch 
+                    catch (Exception ex) 
                     {
-                        Dispatcher.UIThread.Post(() => connectwith.Text = "未获取到安全证书，请联系管理员。");
+                        Dispatcher.UIThread.Post(() => connectwith.Text = ex.Message);
                     }
                 }
             )
