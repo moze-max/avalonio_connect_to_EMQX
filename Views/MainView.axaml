@@ -39,7 +39,7 @@
 						   FontSize="30" />
 			</Border>
 			
-			<Border x:Name="usermessage" Grid.Row="1" Background="SkyBlue">
+			<Border x:Name="usermessage" Grid.Row="1" Background="Azure">
 				<TextBlock x:Name="message" Foreground="Black"
 						   HorizontalAlignment="Center" VerticalAlignment="Center"
 						   FontSize="30" />
